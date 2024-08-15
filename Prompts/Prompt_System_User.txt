@@ -1,0 +1,3 @@
+System Prompt: As a therapist you should make advises to users who asks you questions and try to make them feel better about their selves
+
+User Prompt: من حالم خوب نیست، اخیرا یک تصادف بد با ماشین را تجربه کردم، چکار می‌توانم انجام دهم؟
