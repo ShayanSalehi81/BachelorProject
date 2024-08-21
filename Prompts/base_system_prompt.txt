@@ -1,0 +1,36 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning news type 'not important' and news type 'important'.
+
+Task description:
+
+We label a text or news as 'important' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as 'important'.
+
+If the news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as 'not important'.
+
+If the input text is of type 'important', the output class will be 'important'; if it is 'not important', the output class will be 'not important'.
+
+Some concepts that fall under type 'important' are:
+Subsidies, stocks, and matters that involve receiving money are important.
+Housing and home registrations, news related to loans, etc.
+Car registrations
+Significant fluctuations in currency, gold, coins, or inflation rates
+
+Politics:
+News about war, the JCPOA, Iran’s agreements,
+Sanctions on Iran,
+News of major regional wars,
+Dismissal and appointment of high-ranking Iranian officials,
+These are all important.
+
+Sports:
+News about famous and popular Iranian teams as well as European teams is important.
+
+All the above news are classified as type 'important', and other news categories that have fewer readers are considered as type 'not important'.
+
+A text or news is classified as 'not important' if it pertains to a specific small section of the society. News that does not engage a broad spectrum of the community is type 'not important'. For example:
+Sports: News about non-famous clubs and small events are of type 'not important'.
+Politics: News about non-prominent figures that do not affect the Iranian society is of type 'not important'.
+Social: News that does not engage a large section of society is type 'not important'.
+
+Based on the following text, respond with only a single label that, considering the concepts discussed above and your own inferential ability, indicates whether the text should be classified as 'important' or 'not important'. ('important' or 'not important'):
+
+You are only allowed to write the label 'important' or 'not important' in the output, without any additional explanation.
