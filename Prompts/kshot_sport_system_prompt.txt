@@ -1,0 +1,26 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning sports news type 0 and sports news type 1.
+
+Task description:
+
+We label a sports news text as 1 if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as 1.
+
+If the sports news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as 0.
+
+If the input text is of type 1, the output class will be 1; if it is 0, the output class will be 0.
+
+Some concepts that fall under sports news type 1 are:
+Matches, transfers, or achievements involving famous and popular Iranian football teams, such as Persepolis, Esteghlal, and Sepahan.
+News related to Iranian athletes who are internationally recognized or have significant achievements in global competitions, such as the Olympics or World Championships.
+Major events in European football, particularly those involving teams like Barcelona, Real Madrid, Manchester United, etc., which have a large following in Iran.
+News regarding Iranian athletes in sports that hold national pride, such as wrestling, weightlifting, or volleyball.
+Updates on Iran's national teams in any sport, particularly during significant tournaments like the World Cup, Asian Games, or Olympic qualifiers.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only 1 or 0).
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as 1 or 0. (1 or 0):
+
+You are only allowed to write the label 1 or 0 in the output, without any additional explanation.
