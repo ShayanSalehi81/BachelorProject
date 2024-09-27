@@ -1,0 +1,26 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning science and technology news type '0' and science and technology news type '1'.
+
+Task description:
+
+We label a science and technology news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the science and technology news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under science and technology news type '1' are:
+Major advancements or discoveries in science that have global significance or specific implications for Iran, such as breakthroughs in medicine, physics, or environmental science.
+News about technological innovations, particularly those developed in Iran or by Iranian scientists, that have the potential to impact industries or society at large.
+Significant developments in information technology, cybersecurity, and artificial intelligence that are relevant to Iranian interests or that could influence the global technology landscape.
+Reports on major scientific conferences or events where Iranian scientists or technologists are recognized or play a significant role.
+Developments in the tech industry, particularly regarding companies or startups that are driving innovation in Iran or globally influential tech giants that have a major impact on the Iranian market.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.

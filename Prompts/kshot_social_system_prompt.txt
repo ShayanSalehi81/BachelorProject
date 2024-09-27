@@ -1,0 +1,25 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning social news type '0' and social news type '1'.
+
+Task description:
+
+We label a social news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the social news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under social news type '1' are:
+News about significant social movements or protests within Iran.
+Changes in laws or regulations that impact daily life, such as those related to education, employment, or public services.
+News involving prominent Iranian social figures, celebrities, or influential personalities who are widely recognized.
+Social issues like poverty, inequality, or social justice matters that resonate widely within the Iranian society.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.

@@ -1,0 +1,26 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning health and medical news type '0' and health and medical news type '1'.
+
+Task description:
+
+We label a health and medical news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the health and medical news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under health and medical news type '1' are:
+Major public health updates, such as information about pandemics, vaccination campaigns, or widespread health crises that affect a large portion of the population.
+News about significant medical advancements or breakthroughs, particularly those involving Iranian researchers or that have implications for common health issues in Iran.
+Updates on healthcare policies, reforms, or changes in the Iranian healthcare system that impact access to medical services or the quality of care.
+Health-related initiatives or campaigns by the government or prominent organizations aimed at improving public health, such as anti-smoking campaigns, nutrition awareness, or mental health programs.
+Coverage of significant health risks or environmental factors affecting health in Iran, such as pollution, food safety, or occupational hazards.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.

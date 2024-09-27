@@ -1,0 +1,27 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning economic news type '0' and economic news type '1'.
+
+Task description:
+
+We label an economic news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the economic news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under economic news type '1' are:
+Significant fluctuations in currency exchange rates, especially the Iranian Rial, and their impact on the economy.
+News about inflation rates and their effects on the cost of living in Iran.
+Updates on subsidies, government economic policies, or changes in taxation that affect a large portion of the population.
+Developments in the housing market, including changes in property prices, home registrations, and mortgage rates.
+Reports on key sectors of the Iranian economy, such as oil, gas, and petrochemicals, and any significant changes in production or exports.
+News on international sanctions and their direct or indirect impact on the Iranian economy.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.

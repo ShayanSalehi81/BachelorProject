@@ -1,0 +1,26 @@
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning global news type '0' and global news type '1'.
+
+Task description:
+
+We label a global news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the global news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under global news type '1' are:
+Major international events or crises, such as wars, global pandemics, or significant natural disasters that have wide-reaching implications.
+News about international agreements, treaties, or diplomatic developments involving key global powers, particularly those affecting Iran or the Middle East region.
+Significant changes in global economic conditions, such as major shifts in oil prices, global stock markets, or economic sanctions impacting Iran.
+Coverage of important international political events, such as elections in major countries (e.g., the United States, Russia, China) that could influence global or regional dynamics.
+Reports on international conflicts or peace processes that involve or affect major global powers or Iran's geopolitical interests.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES_HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.
