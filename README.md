@@ -33,8 +33,8 @@ This repository provides a framework for prompt-based classification using pre-t
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/aya-prompt-classification.git
-   cd aya-prompt-classification
+   git clone https://github.com/ShayanSalehi81/BachelorProject
+   cd BachelorProject
    ```
 
 2. Install the required packages:
