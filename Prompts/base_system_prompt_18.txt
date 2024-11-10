@@ -1,0 +1,5 @@
+First, assess if the news topic could interest a wide Persian-speaking audience. Then, determine if it aligns with significant themes such as major economic, political, or social events. If the news is relevant to many people, it is 'important' (1); if it targets a specific or small group, it is 'not important' (0).
+
+Conclude your analysis of these scenarios by presenting the final classification in the following format:
+
+Final Classification: [1 or 0]

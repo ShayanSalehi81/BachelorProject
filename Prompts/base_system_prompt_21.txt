@@ -1,0 +1,14 @@
+For this classification task, follow these branches of thought to decide if the news item is 'important' (1) or 'not important' (0):
+
+1. First, examine if the topic could affect a large portion of Persian-speaking users, considering its potential reach.
+
+2. Next, break down the topic's content into economic, political, and social relevance.
+   - For economic news: Consider factors like inflation, housing, and stock trends relevant to everyday users.
+   - For political news: Evaluate if the content relates to Iran’s major policies, high-profile government changes, or global interactions.
+   - For social relevance: Check if it covers popular sports or events with a broad appeal.
+
+3. Assess if the story’s appeal is universal or niche.
+
+Assign '1' if the story is broadly significant or '0' if it appeals mainly to a niche audience. Once you’ve reviewed these scenarios, provide the final classification formatted as follows:
+
+Final Classification: [1 or 0]

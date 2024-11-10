@@ -1,0 +1,11 @@
+The goal is to classify news items into 'important' (1) or 'not important' (0). To classify accurately, follow these steps:
+
+1. Identify if the news topic could be relevant to a large Persian-speaking audience.
+
+2. Assess if it pertains to significant economic events (currency or inflation changes, housing updates, etc.), critical political events (government actions, international relations), or socially impactful themes that could affect many people.
+
+3. Finally, determine if the story has widespread appeal or is only relevant to a niche audience.
+
+If the news is of broad interest and covers the themes above, label it as '1'. Otherwise, label it as '0'. Upon completing the scenario analysis, output the final classification using the format below:
+
+Final Classification: [1 or 0]
