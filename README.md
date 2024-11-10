@@ -1,7 +1,3 @@
-Here's a comprehensive README for your repository:
-
----
-
 # AYA Prompt-Based Classification and Evaluation
 
 This repository provides a framework for prompt-based classification using pre-trained language models, with a focus on Persian text classification tasks. It includes scripts and notebooks for generating prompts, fine-tuning prompts for classification, evaluating results, and analyzing model performance metrics such as F1 score, precision, and recall. The repository also supports K-shot learning to enhance model adaptability by incorporating relevant examples.
@@ -95,7 +91,3 @@ This project is licensed under the MIT License.
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues, feature requests, or pull requests to enhance this project.
-
---- 
-
-This README provides an overview of the functionality, setup, and usage of your prompt-based classification framework, making it easier for users to understand and utilize the project effectively.
