@@ -2,6 +2,7 @@ import re
 import torch
 import warnings
 import pandas as pd
+import bitsandbytes
 
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -10,6 +11,71 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 warnings.filterwarnings('ignore')
 torch.backends.cuda.enable_mem_efficient_sdp(False)
 torch.backends.cuda.enable_flash_sdp(False)
+
+
+class Generator:
+    def __init__(self, model_name, quantize_4bit=True, use_flash_attention=False):
+        self.model_name = model_name
+        self.quantize_4bit = quantize_4bit
+        self.use_flash_attention = use_flash_attention
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = None
+        self.tokenizer = None
+        self._load_model()
+
+    def _load_model(self):
+        quantization_config = None
+        if self.quantize_4bit:
+            quantization_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_compute_dtype=torch.bfloat16,
+            )
+
+        attn_implementation = None
+        if self.use_flash_attention:
+            attn_implementation = "flash_attention_2"
+
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_name,
+            quantization_config=quantization_config,
+            attn_implementation=attn_implementation,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+        )
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        print("Model and tokenizer loaded successfully.")
+
+    def get_message_format(self, system_prompt, user_prompts):
+        formatted_prompts = []
+        for user_prompt in user_prompts:
+            formatted_prompts.append([
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ])
+        return formatted_prompts
+
+    def generate_responses(self, system_prompt, user_prompts, temperature=0.3, top_p=0.75, top_k=0, max_new_tokens=1024):
+        messages = self.get_message_format(system_prompt, user_prompts)
+        input_ids = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=True,
+            add_generation_prompt=True,
+            padding=True,
+            return_tensors="pt",
+        ).to(self.device)
+        prompt_padded_len = len(input_ids[0])
+        gen_tokens = self.model.generate(
+            input_ids,
+            temperature=temperature,
+            top_p=top_p,
+            top_k=top_k,
+            max_new_tokens=max_new_tokens,
+            do_sample=True,
+        )
+        gen_tokens = [gt[prompt_padded_len:] for gt in gen_tokens]
+        return self.tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
 
 
 class LLMRunner():
@@ -117,6 +183,7 @@ class LLMRunner():
             output = self.generator.generate_responses(system_prompt, user_prompt_list)[0]
             
             result = self.extract_label(output)
+            self.result_df.at[i, column_name_to_write] = result
             
             torch.cuda.empty_cache()
             print(f"answer of row {i} is {result} and k is {k_shot}.     Text type: {self.result_df['text_type'][i]}  Real tag: {self.result_df['real_tag'][i]}\nOutput: {output}")
@@ -131,79 +198,16 @@ class LLMRunner():
     def run(self):
         for k_shot in self.kshot_list:
             self.generate_results(k_shot)
-
-class Generator:
-    def __init__(self, model_name, quantize_4bit=True, use_flash_attention=False):
-        self.model_name = model_name
-        self.quantize_4bit = quantize_4bit
-        self.use_flash_attention = use_flash_attention
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model = None
-        self.tokenizer = None
-        self._load_model()
-
-    def _load_model(self):
-        quantization_config = None
-        if self.quantize_4bit:
-            quantization_config = BitsAndBytesConfig(
-                load_in_4bit=True,
-                bnb_4bit_quant_type="nf4",
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_compute_dtype=torch.bfloat16,
-            )
-
-        attn_implementation = None
-        if self.use_flash_attention:
-            attn_implementation = "flash_attention_2"
-
-        self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,
-            quantization_config=quantization_config,
-            attn_implementation=attn_implementation,
-            torch_dtype=torch.bfloat16,
-            device_map="auto",
-        )
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        print("Model and tokenizer loaded successfully.")
-
-    def get_message_format(self, system_prompt, user_prompts):
-        formatted_prompts = []
-        for user_prompt in user_prompts:
-            formatted_prompts.append([
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ])
-        return formatted_prompts
-
-    def generate_responses(self, system_prompt, user_prompts, temperature=0.3, top_p=0.75, top_k=0, max_new_tokens=1024):
-        messages = self.get_message_format(system_prompt, user_prompts)
-        input_ids = self.tokenizer.apply_chat_template(
-            messages,
-            tokenize=True,
-            add_generation_prompt=True,
-            padding=True,
-            return_tensors="pt",
-        ).to(self.device)
-        prompt_padded_len = len(input_ids[0])
-        gen_tokens = self.model.generate(
-            input_ids,
-            temperature=temperature,
-            top_p=top_p,
-            top_k=top_k,
-            max_new_tokens=max_new_tokens,
-            do_sample=True,
-        )
-        gen_tokens = [gt[prompt_padded_len:] for gt in gen_tokens]
-        return self.tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
     
+
 if __name__ == '__main__':
-    LLMRunner(
-        train_path='Datasets/train_bert_cat.xlsx',
-        eval_path='Datasets/eval_bert_cat.xlsx',
-        test_path='Datasets/test_bert_cat.xlsx',
-        result_path='Datasets/System_Prompt18_Train_Data_Results.csv',
-        base_prompt_path='Prompts/base_system_prompt_18.txt',
-        kshot_prompt_path='Prompts/kshot_system_prompt_18.txt',
-        output_path='Output/System_Prompt18_Train_Data_Results.csv',
-        kshot_list=[0, 20])
-    LLMRunner.run()
+    llm_runner = LLMRunner(
+        train_path='/kaggle/input/news-dataset/train_bert_cat.xlsx',
+        eval_path='/kaggle/input/news-dataset/eval_bert_cat.xlsx',
+        test_path='/kaggle/input/news-dataset/test_bert_cat.xlsx',
+        result_path='/kaggle/input/news-dataset/System_Prompt19_Train_Data_Results.csv',
+        base_prompt_path='/kaggle/input/news-prompt/base_system_prompt_19.txt',
+        kshot_prompt_path='/kaggle/input/news-prompt/kshot_system_prompt_19.txt',
+        output_path='System_Prompt19_Train_Data_Results.csv',
+        kshot_list=[0])
+    llm_runner.run()
