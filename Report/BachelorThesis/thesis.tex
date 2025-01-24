@@ -1,0 +1,93 @@
+
+%  PLEASE DO NOT REMOVE OR CHANGE THIS BLOCK
+%  ===========================================================
+%
+%  A LaTeX Template for Typesetting Theses in Persian
+%  By: Hamid Zarrabi-Zadeh
+%  Source: https://github.com/zarrabi/thesis-template
+%
+%  License: Creative Commons Attribution 4.0
+%  https://creativecommons.org/licenses/by/4.0/
+%
+%  Contributors: Ehsan Emamjomeh-Zadeh and Omid Gheibi
+%  See the full list of contributors at GitHub.
+%
+%  ===========================================================
+
+
+\documentclass[oneside,a4paper,12pt]{book}
+
+\input{styles/common.tex}
+\input{styles/custom.tex}
+
+\begin{document}
+
+
+% -------------------- Font Settings --------------------
+
+%\shariffont  % برای استفاده از فونت شریف این خط را فعال کنید
+
+
+% -------------------- Front Pages --------------------
+
+\include{front/info}
+\pagestyle{empty}
+\include{front/template/title}
+
+% info: برای درج هر یک از صفحات زیر، خط مربوطه را فعال کنید
+
+%\include{front/template/besmellah}  % صفحه بسم الله
+%\include{front/template/signatures}  % صفحه تصویب‌نامه
+%\include{front/template/declaration}  % صفحه اظهارنامه
+
+\pagestyle{plain}
+\pagenumbering{tartibi}
+
+\include{front/acknowledge}  % صفحه سپاس
+\include{front/abstract}
+
+
+% -------------------- Table of Contents --------------------
+
+\tableofcontents \newpage
+\listoftables \newpage
+\listoffigures \newpage
+
+
+% -------------------- Chapters --------------------
+
+\pagenumbering{arabic}
+
+\include{chapters/introduction}
+\include{chapters/preliminaries}
+\include{chapters/literature}
+\include{chapters/results}
+\include{chapters/conclusions}
+
+
+% -------------- Bibliography & Dictionary ---------------
+
+\include{bibs/bibs}
+\include{front/dictionary}
+
+
+% -------------------- Appendices --------------------
+
+\begin{appendix}
+\include{chapters/appendix}
+\end{appendix}
+
+
+% -------------------- English Pages --------------------
+
+%\newgeometry{left=3cm,right=2.5cm}
+
+\pagestyle{empty}
+\include{front/abstract-eng}
+\include{front/template/title-eng}
+
+
+% -------------------- The End! --------------------
+
+\end{document}
+
