@@ -226,9 +226,207 @@ SAMPLES
 \end{scriptsize}
 \vspace{5pt}
 
+\زیرقسمت{دستورهای مخصوص دسته‌‌های متخلف خبری}
+یک نگاه به تحلیل موضوع اهمیت اخبار این است که هردسته برای خود می‌بایست به صورت مستقل ارزیابی شود. با این نگاه پرامپت‌های مختلفی برای دسته‌های بندی نوشته شده است که در ادامه برای نمونه، چهار دسته از این دستور‌ها قرار داده شده است.
 
+دستور مخصوص دسته‌بندی ورزشی از اخبار:
 
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+\begin{latin}
+\LTR
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning sports news type 0 and sports news type 1.
 
+Task description:
+
+We label a sports news text as 1 if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as 1.
+
+If the sports news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as 0.
+
+If the input text is of type 1, the output class will be 1; if it is 0, the output class will be 0.
+
+Some concepts that fall under sports news type 1 are:
+Matches, transfers, or achievements involving famous and popular Iranian football teams, such as Persepolis, Esteghlal, and Sepahan.
+News related to Iranian athletes who are internationally recognized or have significant achievements in global competitions, such as the Olympics or World Championships.
+Major events in European football, particularly those involving teams like Barcelona, Real Madrid, Manchester United, etc., which have a large following in Iran.
+News regarding Iranian athletes in sports that hold national pride, such as wrestling, weightlifting, or volleyball.
+Updates on Iran's national teams in any sport, particularly during significant tournaments like the World Cup, Asian Games, or Olympic qualifiers.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES HERE
+
+Learn from the above examples and determine the output (only 1 or 0).
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as 1 or 0. (1 or 0):
+
+You are only allowed to write the label 1 or 0 in the output, without any additional explanation.
+\RTL
+\end{latin}
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
+
+برای دسته‌بندی اجتماعی نیز داریم:
+
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+\begin{latin}
+\LTR
+Task description:
+
+We label a social news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the social news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under social news type '1' are:
+News about significant social movements or protests within Iran.
+Changes in laws or regulations that impact daily life, such as those related to education, employment, or public services.
+News involving prominent Iranian social figures, celebrities, or influential personalities who are widely recognized.
+Social issues like poverty, inequality, or social justice matters that resonate widely within the Iranian society.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+SAMPLES HERE
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.
+\RTL
+\end{latin}
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
+
+همچنین برای دسته‌بندی سیاسی داریم:
+
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+\begin{latin}
+\LTR
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning political news type '0' and political news type '1'.
+
+Task description:
+
+We label a political news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the political news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under political news type '1' are:
+News about significant international agreements or treaties involving Iran, such as the JCPOA (Joint Comprehensive Plan of Action).
+Updates on sanctions imposed on or lifted from Iran by other countries or international organizations.
+Coverage of major regional or global conflicts, particularly those involving Iran or affecting its geopolitical standing.
+Elections, both domestic and international, that have a substantial impact on Iran’s political landscape.
+Legislative changes or government decisions that affect the broader population, such as those related to civil liberties, national security, or economic policies.
+Coverage of protests or significant political movements within Iran that resonate with a large segment of the population.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+Learn from the above examples and determine the output (only '1' or '0').
+
+Now, based on the "above examples," respond with only a single word that, considering the concepts discussed above and your own inferential ability, indicates whether the following text should be classified as '1' or '0'. ('1' or '0'):
+\RTL
+\end{latin}
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
+
+و در نهایت برای دسته‌‌بندی علمی خواهیم داشت:
+
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+\begin{latin}
+\LTR
+The goal is to have a binary classifier that, by receiving any input text, determines its class in the output. The classes include two categories: 'not important' and 'important', meaning science and technology news type '0' and science and technology news type '1'.
+
+Task description:
+
+We label a science and technology news text as '1' if it is of high importance to most Persian-speaking users. In other words, if a large population of Iranians are likely to read, share, or be interested in it, it is classified as '1'.
+
+If the science and technology news pertains to a small group or a specific community of users, has little reading value, or is not significant, it is classified as '0'.
+
+If the input text is of type '1', the output class will be '1'; if it is '0', the output class will be '0'.
+
+Some concepts that fall under science and technology news type '1' are:
+Major advancements or discoveries in science that have global significance or specific implications for Iran, such as breakthroughs in medicine, physics, or environmental science.
+News about technological innovations, particularly those developed in Iran or by Iranian scientists, that have the potential to impact industries or society at large.
+Significant developments in information technology, cybersecurity, and artificial intelligence that are relevant to Iranian interests or that could influence the global technology landscape.
+Reports on major scientific conferences or events where Iranian scientists or technologists are recognized or play a significant role.
+Developments in the tech industry, particularly regarding companies or startups that are driving innovation in Iran or globally influential tech giants that have a major impact on the Iranian market.
+
+Samples: Look at the following examples and, based on them, answer the question below.
+
+You are only allowed to write the label '1' or '0' in the output, without any additional explanation.
+\RTL
+\end{latin}
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
+
+\زیرقسمت{دستعورالعمل‌‌های زنجیره‌های تفکر}
+این نوع دستور‌ها مدل را به بررسی گام‌به‌گام موضوع و تفکر در خصوص آن دعوت می‌کند. در اینجا نمونه‌ای نوشته شده و به کار برده شده این دستور را مشاهده می‌کنید.
+
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+هدف این است که اخبار را به دو دسته «مهم» (۱) و «غیر مهم» (۰) طبقه‌بندی کنیم. برای طبقه‌بندی دقیق، مراحل زیر را دنبال کنید:
+
+۱. بررسی کنید که آیا موضوع خبر می‌تواند برای جمعیت زیادی از فارسی‌زبانان مرتبط باشد یا خیر.
+
+۲. ارزیابی کنید که آیا خبر به رویدادهای مهم اقتصادی (تغییرات ارز یا تورم، به‌روزرسانی‌های مسکن و غیره)، رویدادهای سیاسی حیاتی (اقدامات دولت، روابط بین‌الملل) یا موضوعات اجتماعی تاثیرگذار که ممکن است افراد زیادی را تحت تاثیر قرار دهد، مربوط می‌شود.
+
+۳. در نهایت، مشخص کنید که آیا خبر جذابیت عمومی دارد یا تنها برای مخاطبان خاصی قابل توجه است.
+
+اگر خبر به موضوعات ذکر شده مربوط باشد و علاقه‌مندی گسترده‌ای را به خود جلب کند، آن را با «۱» برچسب بزنید. در غیر این صورت، «۰» را انتخاب کنید. پس از بررسی این سناریوها، طبقه‌بندی نهایی را در قالب زیر ارائه کنید:
+
+طبقه بندی نهایی: «۰ یا ۱»
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
+
+\زیرقسمت{دستورالعمل‌های درخت تفکر}
+این نوع دستور‌ها کاربرد این را داشته که در مرحله‌ای به صورت درختی و جست‌وجوی سطحی یک موضوعی را بررسی و سپس نتیجه‌ را اعلام کند.
+
+\vspace{5pt}
+\begin{scriptsize}
+\begin{itshape}
+\begin{latin}
+\LTR
+For this classification task, follow these branches of thought to decide if the news item is 'important' (1) or 'not important' (0):
+
+1. First, examine if the topic could affect a large portion of Persian-speaking users, considering its potential reach.
+
+2. Next, break down the topic's content into economic, political, and social relevance.
+   - For economic news: Consider factors like inflation, housing, and stock trends relevant to everyday users.
+   - For political news: Evaluate if the content relates to Iran’s major policies, high-profile government changes, or global interactions.
+   - For social relevance: Check if it covers popular sports or events with a broad appeal.
+
+3. Assess if the story’s appeal is universal or niche.
+
+Samples: Look at the following examples and, based on them, understand which news is considered important or '1' and which ones are considered not important or '0'.
+
+SAMPLES
+
+Learn from the above examples and determine the output.
+
+Assign '1' if the story is broadly significant or '0' if it appeals mainly to a niche audience. Once you’ve reviewed these scenarios, provide the final classification formatted as follows:
+
+Final Classification: [1 or 0]
+\RTL
+\end{latin}
+\end{itshape}
+\end{scriptsize}
+\vspace{5pt}
 
 \قسمت{نتایج اضافی‌تر}
 
